@@ -15,10 +15,6 @@
 		echo json_encode(array("status"=>"invalid userid"));
 	}
 	else{
-		echo json_encode(array('status' => "login success"));
-		$_SESSION['user_name'] = $result[0]->user_name;
-		$_SESSION['user_type'] = $result[0]->user_type;
-		$_SESSION['user_id'] = $result[0]->user_id;
+		echo json_encode(array('status' => "login success", "token" => md5($result[0]->user_id),"user_type" => $result[0]->user_type));
 	}
-
 ?>

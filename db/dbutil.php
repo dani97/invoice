@@ -37,7 +37,6 @@
 				return $result;
 			}
 			catch(PDOException $e){
-				echo "error occured,couldn't fetch results";
 				echo $e->getMessage();
 			}
 		}
@@ -45,10 +44,15 @@
 		function tableUpdate($query ,$bindParams) {
 			try {
 				$stmt = $this->pdo->prepare($query);
-				return $stmt->execute($bindParams);
+				if($stmt->execute($bindParams)){
+					return $stmt->rowCount();
+				}
+				else{
+					return -1;
+				}
 			} 
 			catch(PDOException $e){
-				echo "error occured,couldn't insert data";
+				echo $e->getMessage();
 			}
 		}
 

@@ -13,14 +13,15 @@
 	if(isset($data['product_id'])) {
 		$params = array(":product_id" => $data["product_id"]);
 		$query = "select * from products where product_id=:product_id";
-		$result["status"] = "success";
-		$result["data"] = $db->select($query,$params,"Product");
-	}
-	else if(isset($data['product_name'])) {
-		$params = array("product_name" => $data['product_name']);
-		$query = "select * from products where product_name=:product_name";
-		$result["status"] = "success";
-		$result["data"] = $db->select($query,$params,"Product");
+		$data = $db->select($query,$params,"Product");
+		$count = count($data);
+		if($count!=0) {
+			$result["status"] = "success";
+			$result["data"] = $data;
+		}
+		else{
+			$result["status"] = "couldn't find product";
+		}
 	}
 	else {
 		$result['status'] = "error";

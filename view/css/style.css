@@ -1,0 +1,51 @@
+body {
+	margin: 0px;
+	background: url(http://pluspng.com/img-png/grocery-items-png-supermarket-new-york-962.png);
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+a,a:hover,a:active,a:visited {
+	text-decoration: none;
+	color: #fff;
+}
+.hide {
+	display: none;
+}
+
+.top-nav {
+	height: 40px;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	background: #87ceeb;
+	padding-top: 20px;
+}
+
+.show {
+	display: block !important;
+}
+
+.form-container {
+	display: flex;
+	justify-content: space-around;
+}
+.form {
+	width: 30%;
+	background: rgba(204,204,204,0.7);
+	padding: 20px;
+	margin-top: 100px;
+}
+
+.input-box {
+	width:80%;
+	height: 30px;
+	padding: 2px;
+}
+
+.input-button {
+	height: 40px;
+	width: 40%;
+}

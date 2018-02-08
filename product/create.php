@@ -1,37 +1,30 @@
 <?php
-	session_start();
-	if(isset($_SESSION['user_type']) && (strcmp($_SESSION['user_type'],"admin") 
-		|| (strcmp($_SESSION['user_type'],"employee")))){
+	$data = json_decode(file_get_contents("php://input"),true);
+	function authenticate($data) {
+		if(strcmp($data['token'],md5($data['user_id'])==0)){
+			return true;
+		}
+		return false;
+	}
+
+	if(authenticate($data)){
+		unset($data['token']);
+		unset($data['user_id']);
 		header("Access-Control-Allow-Origin: *");
 		header("Access-Control-Allow-Methods: POST");
 		header('Content-Type: application/json');
 		require '../db/dbutil.php';
 		require '../model/product.php';
-
-		function arrayToObject(array $array, $className) {
-	    return unserialize(sprintf(
-	        'O:%d:"%s"%s',
-	        strlen($className),
-	        $className,
-	        strstr(serialize($array), ':')
-	    ));
-		}
-
-		function validateProduct($product){
-			var_dump(get_class_vars("Product"));
-		}
-
-		$data = json_decode(file_get_contents("php://input"),true);
 		$db = new DB();
 		$db->connect();
 		$query = "insert into products (product_name, quantity, unit, price) ".
 		"values(:product_name, :quantity, :unit, :price)";
 		$result = $db->tableUpdate($query,$data);
-		if($result){
-			echo json_encode(array("status","success"));
+		if($result!=-1){
+			echo json_encode(array("status"=>"success"));
 		}
 		else{
-			echo json_encode(array("status","failure"));
+			echo json_encode(array("status"=>"failure"));
 		}
 		$db->close();
 	} else {
