@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	include '../menu.php';
 	require '../util/urllib.php';
 	$data = array();
 	if(isset($_POST['product_name']) && isset($_POST['quantity']) && isset($_POST['unit']) && isset($_POST['price'])){
@@ -11,8 +11,8 @@
 		$data['user_id'] = $_SESSION['user_id'];
 		$data = json_encode($data);
 		$response = json_decode(url::postData("http://localhost/invoice/product/create.php",$data),true);
-		echo "<p>Product insertion ".$response['status']."</p>";
+		setcookie('status', $response['status'], time() + (86400 ), "/");
 	}
 
 ?>
-<a href="http://localhost/invoice/view/user/"> go back</a>  
+<a href="http://localhost/invoice/view/user/forms"> go back</a>  

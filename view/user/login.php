@@ -11,10 +11,11 @@
 			$_SESSION['user_id'] = $_POST['user_id'];
 			$_SESSION['token'] = $response['token'];
 			$_SESSION['user_type'] = $response['user_type'];
-			header('location: http://localhost/invoice/view/user');
+			header('location: http://localhost/invoice/view/user/forms');
 		}
 		else {
-			header('location: http://localhost/invoice/view/index.php?status=failure');
+			setcookie('status', 'failure', -1, "/");
+			header('location: http://localhost/invoice/view/index.php?');
 		}
 	}
 	else {

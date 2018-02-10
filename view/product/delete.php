@@ -8,7 +8,7 @@
 		$data['user_id'] = $_SESSION['user_id'];
 		$data = json_encode($data);
 		$response = json_decode(url::postData("http://localhost/invoice/product/delete.php",$data),true);
-		echo "<p>".$response['status']."</p>";
+		setcookie('status', $response['status'], time() + (86400 ), "/");
 	}
 ?>
-<a href="http://localhost/invoice/view/user/"> go back</a>  
+<a href="http://localhost/invoice/view/user/forms"> go back</a>  

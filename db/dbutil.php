@@ -24,8 +24,6 @@
 				return $result;
 			}
 			catch(PDOException $e){
-				echo "error occured,couldn't fetch results";
-				echo $e->getMessage();
 			}
 		}
 
@@ -37,7 +35,6 @@
 				return $result;
 			}
 			catch(PDOException $e){
-				echo $e->getMessage();
 			}
 		}
 
@@ -52,7 +49,6 @@
 				}
 			} 
 			catch(PDOException $e){
-				echo $e->getMessage();
 			}
 		}
 

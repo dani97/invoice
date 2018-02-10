@@ -1,20 +1,25 @@
 body {
 	margin: 0px;
-	background: url(http://pluspng.com/img-png/grocery-items-png-supermarket-new-york-962.png);
+	background: url(https://business-reporter.co.uk/wp-content/uploads/2017/08/ThinkstockPhotos-672450320.jpg);
 	background-position: center center;
 	background-attachment: fixed;
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 
 a,a:hover,a:active,a:visited {
 	text-decoration: none;
 	color: #fff;
+	display: inline-block;
 }
 .hide {
 	display: none;
 }
 
+.red {
+	color: rgba(255,0,0,1);
+	font-weight: bolder;
+}
 .top-nav {
 	height: 40px;
 	width: 100%;
@@ -22,6 +27,8 @@ a,a:hover,a:active,a:visited {
 	justify-content: space-around;
 	background: #87ceeb;
 	padding-top: 20px;
+	position: fixed;
+	z-index: 1;
 }
 
 .show {
@@ -48,4 +55,42 @@ a,a:hover,a:active,a:visited {
 .input-button {
 	height: 40px;
 	width: 40%;
+}
+
+.products {
+	width: 30%;
+	background: rgba(204,204,204,0.7);
+	padding: 20px;
+	margin-top: 100px;
+}
+
+.product {
+	width: 100%;
+	border: 1px solid #333;
+	text-align: center;
+	background: skyblue;
+	display: flex;
+	justify-content: space-around;
+	margin: 2px;
+}
+
+.icon {
+	padding-top: 20px;
+	
+}
+
+.status {
+	position: fixed;
+	top: 100px;
+	width: 100px;
+	height: 100px;
+	background: #87ceeb;
+	color: #fff;
+	text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+	.icon {
+		display: none;
+	}
 }

@@ -1,6 +1,9 @@
 <?php
 	$data = json_decode(file_get_contents("php://input"),true);
 	function authenticate($data) {
+		if($data==null) {
+			return false;
+		}
 		if(strcmp($data['token'],md5($data['user_id'])==0)){
 			return true;
 		}
@@ -56,7 +59,7 @@
 			}
 		}
 		else {
-			$output["status"] = "request error";
+			$output["status"] = "updation information is missing";
 		}
 		$db->close();
 		echo  json_encode($output);
