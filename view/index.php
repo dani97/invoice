@@ -9,7 +9,7 @@
 	<form class="form" method="post" action="user/login.php" class="">
 		<legend>Login Form</legend><br> 
 		<label>User Id</label><br>
-		<input type="text" name="user_id" placeholder="enter user id" class="input-box" required><br><br>
+		<input type="number" name="user_id" placeholder="enter user id" class="input-box" required><br><br>
 		<label>Password</label><br>
 		<input type="password" name="password" placeholder="enter password" class="input-box" required><br><br>
 		<input type="submit" value="login" class="input-button">

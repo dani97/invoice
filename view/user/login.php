@@ -11,7 +11,7 @@
 			$_SESSION['user_id'] = $_POST['user_id'];
 			$_SESSION['token'] = $response['token'];
 			$_SESSION['user_type'] = $response['user_type'];
-			header('location: http://localhost/invoice/view/user/forms');
+			header('location: http://localhost/invoice/view/forms');
 		}
 		else {
 			setcookie('status', 'failure', -1, "/");

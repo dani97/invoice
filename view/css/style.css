@@ -12,15 +12,41 @@ a,a:hover,a:active,a:visited {
 	color: #fff;
 	display: inline-block;
 }
+
 .hide {
 	display: none;
+}
+
+.cart-input {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.cart-list {
+	background: #fff;
+	width: 30%;
+	margin-top: 100px;
+}
+
+.cart-quantity {
+	height: 30px;
+	padding-left: 2px;
+}
+
+.cart-button {
+	min-height: 40px;
+	text-align: center;
 }
 
 .red {
 	color: rgba(255,0,0,1);
 	font-weight: bolder;
 }
+
 .top-nav {
+	top: 0%;
 	height: 40px;
 	width: 100%;
 	display: flex;
@@ -31,6 +57,11 @@ a,a:hover,a:active,a:visited {
 	z-index: 1;
 }
 
+.cart {
+	width: 100%;
+	height: 30px;
+}
+
 .show {
 	display: block !important;
 }
@@ -39,6 +70,7 @@ a,a:hover,a:active,a:visited {
 	display: flex;
 	justify-content: space-around;
 }
+
 .form {
 	width: 30%;
 	background: rgba(204,204,204,0.7);
@@ -53,15 +85,16 @@ a,a:hover,a:active,a:visited {
 }
 
 .input-button {
-	height: 40px;
-	width: 40%;
+	min-height: 40px;
+	min-width: 40%;
+	white-space: normal;
 }
 
 .products {
 	width: 30%;
 	background: rgba(204,204,204,0.7);
 	padding: 20px;
-	margin-top: 100px;
+	margin-top: 100px;	
 }
 
 .product {
@@ -80,17 +113,24 @@ a,a:hover,a:active,a:visited {
 }
 
 .status {
-	position: fixed;
-	top: 100px;
-	width: 100px;
-	height: 100px;
-	background: #87ceeb;
-	color: #fff;
+	text-transform: uppercase;
+	padding: 10px;
+	min-height: 70px;
+	margin-top: 10%;
+	margin-left: 25%;
+	background: lightgreen;
 	text-align: center;
+	font-weight: bold;
+	width: 50%;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 	.icon {
 		display: none;
 	}
+
+	.form{
+		width: 100%;
+	}
+
 }

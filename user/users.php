@@ -26,7 +26,7 @@
 		unset($data['user_id']);
 		$db = new DB();
 		$db->connect();
-		$query = "select user_id, user_name, user_type from user";
+		$query = "select user_id, user_name, user_type from user order by user_type asc";
 		$result = array();
 		$result['status'] = "success";
 		$result['data'] = $db->select($query,$data,"User");

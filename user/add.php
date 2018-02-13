@@ -28,10 +28,10 @@
 			$db->connect();
 			$data['password'] = md5($data['password']);
 			$query = "insert into user (user_name, password, user_type) values (:user_name, :password, :user_type)";
-			$result = $db->tableUpdate($query,$data);
+			$result = $db->insert($query,$data);
 			$db->close();
-			if($result) {
-				echo json_encode(array("status"=>"user added successful"));
+			if($result!=-1) {
+				echo json_encode(array("status"=>"user info has been added with id ".$result));
 			}
 			else{
 				echo json_encode(array("status"=>"user could not be added"));

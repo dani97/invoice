@@ -38,11 +38,25 @@
 			}
 		}
 
-		function tableUpdate($query ,$bindParams) {
+		function tableUpdate($query, $bindParams) {
 			try {
 				$stmt = $this->pdo->prepare($query);
 				if($stmt->execute($bindParams)){
 					return $stmt->rowCount();
+				}
+				else{
+					return -1;
+				}
+			} 
+			catch(PDOException $e){
+			}
+		}
+
+		function insert($query, $bindParams) {
+			try {
+				$stmt = $this->pdo->prepare($query);
+				if($stmt->execute($bindParams)){
+					return $this->pdo->lastInsertId();
 				}
 				else{
 					return -1;

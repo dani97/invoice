@@ -1,5 +1,5 @@
  <?php
-	session_start();
+	require 'menu.php';
 	require '../util/urllib.php';
 	if(strcmp($_SESSION['user_type'],"admin")==0) {
 		if(isset($_POST['user_name']) && isset($_POST['password']) && isset($_POST['user_type'])) {
@@ -11,7 +11,7 @@
 			$data['user_id'] = $_SESSION['user_id'];
 			$data = json_encode($data);
 			$response = json_decode(url::postData("http://localhost/invoice/user/add.php",$data),true);
-			setcookie('status', $response['status'], time() + 5, "/");
+			echo "<div class='status'> ".$response['status']."</div>";
 		}
 	}
 ?>

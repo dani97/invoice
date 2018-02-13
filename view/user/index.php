@@ -1,3 +1,3 @@
 <?php
-	header('location: http://localhost/invoice/view/user/forms/index.php');
+	header('location: http://localhost/invoice/view/forms/index.php');
 ?>
